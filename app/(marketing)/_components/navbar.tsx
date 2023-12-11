@@ -12,8 +12,8 @@ export const Navbar = () => {
           <Button size="sm" variant="outline" asChild>
             <Link href="/sign-in">Login</Link>
           </Button>
-          <Button size="sm" asChild>
-            <Link href="/sign-up">Gest Trello for free</Link>
+          <Button size="sm" variant="primary" asChild>
+            <Link href="/sign-up">Get Trello for free</Link>
           </Button>
         </div>
       </div>

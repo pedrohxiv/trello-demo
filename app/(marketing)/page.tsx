@@ -45,7 +45,7 @@ const MarketingPage = () => {
         high rises to the home office, the way your team works is unique -
         accomplish it all with Trello.
       </div>
-      <Button className="mt-6" size="lg" asChild>
+      <Button variant='primary' className="mt-6" size="lg" asChild>
         <Link href="/sign-up">Get Trello for free</Link>
       </Button>
     </div>
