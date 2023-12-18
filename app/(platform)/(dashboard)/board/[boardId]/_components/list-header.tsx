@@ -13,9 +13,10 @@ import { ListOptions } from "./list-options";
 
 interface ListHeaderProps {
   data: List;
+  onAddCard: () => void;
 }
 
-export const ListHeader = ({ data }: ListHeaderProps) => {
+export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
   const formRef = useRef<React.ElementRef<"form">>(null);
   const inputRef = useRef<React.ElementRef<"input">>(null);
 
@@ -34,7 +35,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
     setIsEditing(false);
   };
 
-  const { execute, fieldErros } = useAction(updateList, {
+  const { execute } = useAction(updateList, {
     onSuccess: (data) => {
       toast.success(`Renamed to "${data.title}"`);
       setTitle(data.title), disableEditing();
@@ -92,7 +93,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {title}
         </div>
       )}
-      <ListOptions data={data} onAddCard={() => {}} />
+      <ListOptions data={data} onAddCard={onAddCard} />
     </div>
   );
 };
