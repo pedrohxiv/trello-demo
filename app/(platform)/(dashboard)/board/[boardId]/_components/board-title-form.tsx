@@ -14,6 +14,12 @@ interface BoardTitleFormProps {
 }
 
 export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
+  const formRef = useRef<React.ElementRef<"form">>(null);
+  const inputRef = useRef<React.ElementRef<"input">>(null);
+
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>(data.title);
+
   const { execute } = useAction(updateBoard, {
     onSuccess: (data) => {
       toast.success(`Board "${data.title}" updated!`);
@@ -24,12 +30,6 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
       toast.error(error);
     },
   });
-
-  const formRef = useRef<React.ElementRef<"form">>(null);
-  const inputRef = useRef<React.ElementRef<"input">>(null);
-
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [title, setTitle] = useState<string>(data.title);
 
   const enableEditing = () => {
     setIsEditing(true);
