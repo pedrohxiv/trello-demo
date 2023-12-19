@@ -27,8 +27,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
   const closeRef = useRef<React.ElementRef<"button">>(null);
 
   const { execute: executeDelete } = useAction(deleteList, {
-    onSuccess: (data) => {
-      toast.success(`List "${data.title} deleted"`);
+    onSuccess: () => {
       closeRef.current?.click();
     },
     onError: (error) => {
@@ -37,8 +36,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
   });
 
   const { execute: executeCopy } = useAction(copyList, {
-    onSuccess: (data) => {
-      toast.success(`List "${data.title} copied"`);
+    onSuccess: () => {
       closeRef.current?.click();
     },
     onError: (error) => {
