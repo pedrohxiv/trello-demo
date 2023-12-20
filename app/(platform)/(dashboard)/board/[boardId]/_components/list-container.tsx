@@ -41,7 +41,7 @@ export const ListContainer = ({ boardId, data }: ListContainerProps) => {
 
   useEffect(() => {
     setOrderedData(data);
-  }, []);
+  }, [data]);
 
   const onDragEnd = (result: any) => {
     const { destination, source, type } = result;

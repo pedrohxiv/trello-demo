@@ -50,10 +50,10 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
         <Button
           variant="ghost"
           onClick={onDelete}
-          className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm text-rose-500 hover:text-rose-500"
+          className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm text-destructive hover:text-destructive"
         >
           <Trash2 className="h-4 w-4 mr-2" />
-          Delete this board
+          Delete Board
         </Button>
       </PopoverContent>
     </Popover>

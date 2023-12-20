@@ -1,7 +1,7 @@
 "use client";
 
 import type { List } from "@prisma/client";
-import { MoreHorizontal, X } from "lucide-react";
+import { Copy, MoreHorizontal, Plus, Trash2, X } from "lucide-react";
 import { useRef } from "react";
 import { toast } from "sonner";
 
@@ -82,7 +82,8 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
           className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
           variant="ghost"
         >
-          Add card...
+          <Plus className="h-4 w-4 mr-2" />
+          Add Card
         </Button>
         <form action={onCopy}>
           <input hidden name="id" id="id" value={data.id} />
@@ -91,7 +92,8 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
             variant="ghost"
             className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
           >
-            Copy list...
+            <Copy className="h-4 w-4 mr-2" />
+            Copy List
           </FormSubmit>
         </form>
         <Separator />
@@ -100,8 +102,9 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
             variant="ghost"
-            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm text-destructive hover:text-destructive"
           >
+            <Trash2 className="h-4 w-4 mr-2" />
             Delete List
           </FormSubmit>
         </form>

@@ -28,6 +28,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
     const { execute, fieldErros } = useAction(createCard, {
       onSuccess: () => {
         formRef.current?.reset();
+        disableEditing();
       },
       onError: (error) => {
         toast.error(error);
