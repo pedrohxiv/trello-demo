@@ -17,6 +17,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useAction } from "@/hooks/use-action";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 interface FormPopoverProps {
   children: React.ReactNode;
@@ -35,6 +36,8 @@ export const FormPopover = ({
 
   const router = useRouter();
 
+  const { onOpen } = useProModal();
+
   const { execute, fieldErros } = useAction(createBoard, {
     onSuccess: (data) => {
       closeRef.current?.click();
@@ -43,6 +46,7 @@ export const FormPopover = ({
     onError: (error) => {
       console.error(error);
       toast.error(error);
+      onOpen();
     },
   });
 
